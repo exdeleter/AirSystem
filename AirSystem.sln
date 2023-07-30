@@ -2,6 +2,15 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem", "src\AirSystem\AirSystem.csproj", "{04858F29-90A3-43D7-A0F3-259BE20A7665}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem.Database", "src\AirSystem.Database\AirSystem.Database.csproj", "{35B7EC20-8CCC-433E-A3C9-8379C185B033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem.Models", "src\AirSystem.Models\AirSystem.Models.csproj", "{66658BF3-2C81-4C79-9233-7CB5EEA94426}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{C584A729-3EC3-4AB4-AA97-B2971EBE9E7C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +21,13 @@ Global
 		{04858F29-90A3-43D7-A0F3-259BE20A7665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04858F29-90A3-43D7-A0F3-259BE20A7665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04858F29-90A3-43D7-A0F3-259BE20A7665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B7EC20-8CCC-433E-A3C9-8379C185B033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B7EC20-8CCC-433E-A3C9-8379C185B033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B7EC20-8CCC-433E-A3C9-8379C185B033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B7EC20-8CCC-433E-A3C9-8379C185B033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66658BF3-2C81-4C79-9233-7CB5EEA94426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66658BF3-2C81-4C79-9233-7CB5EEA94426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66658BF3-2C81-4C79-9233-7CB5EEA94426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66658BF3-2C81-4C79-9233-7CB5EEA94426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
