@@ -4,5 +4,6 @@ namespace AirSystem.Models.Dtos;
 
 public class AircraftDto : BaseDto
 {
-    public string Name { get; set; }
+    public string Model { get; set; }
+    public string ManufacturerName { get; set; }
 }

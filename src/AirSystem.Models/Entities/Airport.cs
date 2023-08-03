@@ -33,10 +33,10 @@ public class Airport : BaseEntity, IHaveCoordinates
     public City City { get; set; }
 
     /// <inheritdoc />
-    public decimal Latitude { get; set; }
+    public double Latitude { get; set; }
 
     /// <inheritdoc />
-    public decimal Longitude { get; set; }
+    public double Longitude { get; set; }
     
     /// <summary>
     /// Airport's website
