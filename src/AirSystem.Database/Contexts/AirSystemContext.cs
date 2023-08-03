@@ -1,4 +1,5 @@
-﻿using AirSystem.Models.Entities;
+﻿using System.Reflection;
+using AirSystem.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AirSystem.Database.Contexts;
@@ -34,4 +35,9 @@ public class AirSystemContext : DbContext
     // {
     //     optionsBuilder.UseSqlite("Data Source=helloapp.db");
     // }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
 }

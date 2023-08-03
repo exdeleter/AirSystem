@@ -36,4 +36,9 @@ public class Aircraft : BaseEntity
     /// 
     /// </summary>
     public int ReleaseYear { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? MaxSpeed { get; set; }
 }

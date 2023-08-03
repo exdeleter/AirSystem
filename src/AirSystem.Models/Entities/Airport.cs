@@ -8,33 +8,38 @@ namespace AirSystem.Models.Entities;
 public class Airport : BaseEntity, IHaveCoordinates
 {
     /// <summary>
-    /// IATA code
-    /// </summary>
-    public string CodeIATA { get; set; }
-
-    /// <summary>
-    /// IKAO code
-    /// </summary>
-    public string CodeIKAO { get; set; }
-
-    /// <summary>
-    /// Airport name
+    /// Airport short  name
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// Country ID
+    /// IATA code
     /// </summary>
-    public Guid CountryId { get; set; }
+    public string? IATACode { get; set; }
+
+    /// <summary>
+    /// IKAO code
+    /// </summary>
+    public string? IKAOCode { get; set; }
+
+    /// <summary>
+    /// City ID
+    /// </summary>
+    public Guid CityId { get; set; }
 
     /// <summary>
     /// Country
     /// </summary>
-    public Country Country { get; set; }
+    public City City { get; set; }
 
     /// <inheritdoc />
     public decimal Latitude { get; set; }
 
     /// <inheritdoc />
     public decimal Longitude { get; set; }
+    
+    /// <summary>
+    /// Airport's website
+    /// </summary>
+    public string WebCite { get; set; }
 }
