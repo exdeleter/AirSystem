@@ -1,6 +1,9 @@
 using AirSystem.Database.Contexts;
+using AirSystem.Models.Dtos;
 using AirSystem.Models.Entities;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AirSystem.Controllers;
 
@@ -10,19 +13,33 @@ public class AircraftController : ControllerBase
 {
     private readonly ILogger<AircraftController> _logger;
     private readonly AirSystemContext _context;
-    // private readonly IMapper _mapper;
+    private readonly IMapper _mapper;
 
-    public AircraftController(ILogger<AircraftController> logger, AirSystemContext context)//, IMapper mapper)
+    public AircraftController(ILogger<AircraftController> logger, AirSystemContext context, IMapper mapper)//, IMapper mapper)
     {
         _logger = logger;
         _context = context;
-        // _mapper = mapper;
+        _mapper = mapper;
     }
 
     [HttpGet(Name = "get")]
-    public IEnumerable<Aircraft> Get()
+    public Result<AircraftDto> Get()
     {
-        return _context.Aircrafts.ToList();
+        var list = _context.Aircrafts
+            .Include(x => x.Manufacturer)
+            .ToArray();
+
+        var dtos =  _mapper.Map<IEnumerable<AircraftDto>>(list).ToList();
+
+        var res = new Result<AircraftDto>
+        {
+            Count = dtos.Count(),
+            Limit = Int32.MaxValue,
+            Page = 0,
+            List = dtos
+        };
+
+        return res;
     }
     
     [HttpGet("{id:guid}")]
@@ -75,4 +92,12 @@ public class AircraftController : ControllerBase
 // //todo read about projectTo
 //         return _mapper.Map<IEnumerable<ProductListDto>>(products);
 //     }
+}
+
+public class Result<TEntity>
+{
+    public List<TEntity> List { get; set; }
+    public int Count { get; set; }
+    public int Limit { get; set; }
+    public int Page { get; set; }
 }

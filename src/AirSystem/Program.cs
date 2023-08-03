@@ -1,5 +1,6 @@
 using AirSystem.Database.Contexts;
 using AirSystem.Database.Extensions;
+using AirSystem.Models.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ var connectionString = builder
 builder.Services.AddDbContext<AirSystemContext>(options => options.UseNpgsql(connectionString));
 
 builder.Services.AddControllers();
+builder.Services.ConfigureProfiles();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
