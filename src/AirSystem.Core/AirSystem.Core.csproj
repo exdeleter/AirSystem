@@ -8,4 +8,8 @@
         <OutputPath>bin\$(Configuration)\</OutputPath>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\AirSystem.Core.xml</DocumentationFile>
+    </PropertyGroup>
+
 </Project>

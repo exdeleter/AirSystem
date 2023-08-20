@@ -3,6 +3,7 @@ using System;
 using AirSystem.Database.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AirSystem.Database.Migrations
 {
     [DbContext(typeof(AirSystemContext))]
-    partial class AirSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20230820130618_LittleChange")]
+    partial class LittleChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,24 +162,17 @@ namespace AirSystem.Database.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("CountryId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("country_id")
-                        .HasComment("Country id");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name")
-                        .HasComment("Name");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("cities", null, t =>
-                        {
-                            t.HasComment("Cities");
-                        });
+                    b.ToTable("City");
                 });
 
             modelBuilder.Entity("AirSystem.Api.Models.Entities.Country", b =>
@@ -187,16 +183,11 @@ namespace AirSystem.Database.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name")
-                        .HasComment("Name");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("countries", null, t =>
-                        {
-                            t.HasComment("Countries");
-                        });
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("AirSystem.Api.Models.Entities.Flight", b =>
@@ -321,7 +312,7 @@ namespace AirSystem.Database.Migrations
                     b.HasOne("AirSystem.Api.Models.Entities.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Country");

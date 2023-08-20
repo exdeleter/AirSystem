@@ -14,28 +14,25 @@ public class AirSystemContext : DbContext
         : base(options)
     {
     }
-    
+
     public DbSet<Aircraft> Aircrafts { get; set; }
-    
+
     public DbSet<Airline> Airlines { get; set; }
-    
+
     public DbSet<Airport> Airports { get; set; }
-    
+
     public DbSet<Country> Countries { get; set; }
-    
+
     public DbSet<Flight> Flights { get; set; }
     
+    public DbSet<City> Cities { get; set; }
+
     public DbSet<Manufacturer> Manufacturers { get; set; }
-    
+
     public DbSet<Route> Routes { get; set; }
 
     public AirSystemContext() => Database.EnsureCreated();
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     optionsBuilder.UseSqlite("Data Source=helloapp.db");
-    // }
-    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

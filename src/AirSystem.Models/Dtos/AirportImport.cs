@@ -1,7 +1,7 @@
 using AirSystem.Models.Entities.Base;
 using CsvHelper.Configuration.Attributes;
 
-namespace AirSystem.Models.Entities;
+namespace AirSystem.Models.Dtos;
 
 /// <summary>
 /// Airport
@@ -27,17 +27,7 @@ public class AirportImport : IHaveCoordinates
     /// IKAO code
     /// </summary>
     [Name("ident")]
-    public string? IKAOCode { get; set; }
-    //
-    // /// <summary>
-    // /// City ID
-    // /// </summary>
-    // public Guid? CityId { get; set; }
-    //
-    // /// <summary>
-    // /// Country
-    // /// </summary>
-    // public City? City { get; set; }
+    public string? ICAOCode { get; set; }
 
     /// <inheritdoc />
     [Name("latitude_deg")]
@@ -46,9 +36,22 @@ public class AirportImport : IHaveCoordinates
     /// <inheritdoc />
     [Name("longitude_deg")]
     public double Longitude { get; set; }
-    //
-    // /// <summary>
-    // /// Airport's website
-    // /// </summary>
-    // public string? WebCite { get; set; }
+
+    /// <summary>
+    /// Country
+    /// </summary>
+    [Name("country_name")]
+    public string CountryName { get; set; }
+
+    /// <summary>
+    /// City
+    /// </summary>
+    [Name("municipality")]
+    public string Municipality { get; set; }   
+    
+    /// <summary>
+    /// Website
+    /// </summary>
+    [Name("home_link")]
+    public string Website { get; set; }
 }

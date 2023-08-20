@@ -25,7 +25,7 @@ namespace AirSystem.Database.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Aircraft", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Aircraft", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("Aircrafts");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Airline", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Airline", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace AirSystem.Database.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Airport", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Airport", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -155,7 +155,7 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("Airports");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.City", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.City", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -175,7 +175,7 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("City");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Country", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Country", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -190,7 +190,7 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Flight", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Flight", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -232,7 +232,7 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("Flights");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Manufacturer", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Manufacturer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -247,7 +247,7 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("Manufacturers");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Route", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Route", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,9 +274,9 @@ namespace AirSystem.Database.Migrations
                     b.ToTable("Routes");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Aircraft", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Aircraft", b =>
                 {
-                    b.HasOne("AirSystem.Models.Entities.Manufacturer", "Manufacturer")
+                    b.HasOne("AirSystem.Api.Models.Entities.Manufacturer", "Manufacturer")
                         .WithMany()
                         .HasForeignKey("ManufacturerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -285,9 +285,9 @@ namespace AirSystem.Database.Migrations
                     b.Navigation("Manufacturer");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Airline", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Airline", b =>
                 {
-                    b.HasOne("AirSystem.Models.Entities.City", "City")
+                    b.HasOne("AirSystem.Api.Models.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -296,9 +296,9 @@ namespace AirSystem.Database.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Airport", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Airport", b =>
                 {
-                    b.HasOne("AirSystem.Models.Entities.City", "City")
+                    b.HasOne("AirSystem.Api.Models.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -307,9 +307,9 @@ namespace AirSystem.Database.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.City", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.City", b =>
                 {
-                    b.HasOne("AirSystem.Models.Entities.Country", "Country")
+                    b.HasOne("AirSystem.Api.Models.Entities.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -318,21 +318,21 @@ namespace AirSystem.Database.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Flight", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Flight", b =>
                 {
-                    b.HasOne("AirSystem.Models.Entities.Aircraft", "Aircraft")
+                    b.HasOne("AirSystem.Api.Models.Entities.Aircraft", "Aircraft")
                         .WithMany()
                         .HasForeignKey("AircraftId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AirSystem.Models.Entities.Airline", "Airline")
+                    b.HasOne("AirSystem.Api.Models.Entities.Airline", "Airline")
                         .WithMany()
                         .HasForeignKey("AirlineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AirSystem.Models.Entities.Route", "Route")
+                    b.HasOne("AirSystem.Api.Models.Entities.Route", "Route")
                         .WithMany()
                         .HasForeignKey("RouteId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -345,15 +345,15 @@ namespace AirSystem.Database.Migrations
                     b.Navigation("Route");
                 });
 
-            modelBuilder.Entity("AirSystem.Models.Entities.Route", b =>
+            modelBuilder.Entity("AirSystem.Api.Models.Entities.Route", b =>
                 {
-                    b.HasOne("AirSystem.Models.Entities.Airport", "ArrivalAirport")
+                    b.HasOne("AirSystem.Api.Models.Entities.Airport", "ArrivalAirport")
                         .WithMany()
                         .HasForeignKey("ArrivalAirportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AirSystem.Models.Entities.Airport", "DepartureAirport")
+                    b.HasOne("AirSystem.Api.Models.Entities.Airport", "DepartureAirport")
                         .WithMany()
                         .HasForeignKey("DepartureAirportId")
                         .OnDelete(DeleteBehavior.Cascade)

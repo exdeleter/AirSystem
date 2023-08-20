@@ -4,8 +4,9 @@ using AirSystem.Models.Entities;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
-namespace AirSystem.Controllers;
+namespace AirSystem.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -76,22 +77,6 @@ public class AircraftController : ControllerBase
 
         return Ok();
     }
-
-//     [HttpGet("{companyName}")]
-//     public IEnumerable<ProductListDto> List(string companyName)
-//     {
-//         if (companyName is null)
-//         {
-//
-//             return _mapper.Map<IEnumerable<ProductListDto>>(_context.Products.ToList());
-//         }
-//
-//         var products =  _context.Products
-//             .Include(x => x.Company)
-//             .Where(x => x.Company.Name == companyName).ToList();
-// //todo read about projectTo
-//         return _mapper.Map<IEnumerable<ProductListDto>>(products);
-//     }
 }
 
 public class Result<TEntity>
