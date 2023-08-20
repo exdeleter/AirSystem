@@ -48,13 +48,14 @@ internal class AirlineConfiguration : IEntityTypeConfiguration<Airline>
         builder
             .Property(x => x.LogoUrl)
             .HasComment("LogoUrl")
-            .HasColumnName("LogoUrl");
+            .HasColumnName("logo_url");
 
         builder.ToTable("airlines",
             t => t.HasComment("Airlines"));
 
         builder.HasOne(x => x.City)
             .WithMany()
-            .HasForeignKey(x => x.CityId);
+            .HasForeignKey(x => x.CityId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

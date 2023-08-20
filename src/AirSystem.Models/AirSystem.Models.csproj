@@ -4,20 +4,22 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\AirSystem.Models.xml</DocumentationFile>
+    </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\AirSystem.Abstractions\AirSystem.Abstractions.csproj" />
     </ItemGroup>
-
 
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="12.0.1" />
       <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
       <PackageReference Include="CsvHelper" Version="30.0.1" />
     </ItemGroup>
-
-
 
 </Project>
