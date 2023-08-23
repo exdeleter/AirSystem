@@ -1,12 +1,11 @@
-﻿using AirSystem.Database.Contexts;
+﻿using AirSystem.Abstractions;
+using AirSystem.Core.Service;
+using AirSystem.Database.Contexts;
 using AirSystem.Database.Extensions;
+using AirSystem.Models.Dtos;
+using AirSystem.Models.Entities;
 using AirSystem.Models.Extensions;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +16,7 @@ var connectionString = builder
     .GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AirSystemContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddTransient<IBaseService<AirlineDto>, BaseService<AirlineDto, Airline, AirSystemContext>>();
 
 builder.Services.AddControllers();
 builder.Services.ConfigureProfiles();

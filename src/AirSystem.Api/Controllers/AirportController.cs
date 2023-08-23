@@ -20,15 +20,29 @@ public class AirportController : ControllerBase
     private readonly ILogger<AirportController> _logger;
     private readonly AirSystemContext _context;
     private readonly IMapper _mapper;
-    private readonly CsvConfiguration _csvConfiguration = new CsvConfiguration(CultureInfo.InvariantCulture){ Delimiter = ","};
+    private readonly CsvConfiguration _csvConfiguration = new (CultureInfo.InvariantCulture){ Delimiter = ","};
 
-    public AirportController(ILogger<AirportController> logger, AirSystemContext context, IMapper mapper)
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="logger"></param>
+    /// <param name="context"></param>
+    /// <param name="mapper"></param>
+    public AirportController(
+        ILogger<AirportController> logger,
+        AirSystemContext context,
+        IMapper mapper)
     {
         _logger = logger;
         _context = context;
         _mapper = mapper;
     }
 
+    /// <summary>
+    /// Upload file for import airports
+    /// </summary>
+    /// <param name="file"></param>
+    /// <returns></returns>
     [HttpPost("upload")]
     public async Task<ActionResult> UploadFile(IFormFile file)
     {

@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\AirSystem.Worker.xml</DocumentationFile>
+      <DocumentationFile>AirSystem.Worker.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -29,6 +29,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\AirSystem.Api\AirSystem.Api.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\AirSystem.Core\AirSystem.Core.csproj" />
     </ItemGroup>
 
 </Project>

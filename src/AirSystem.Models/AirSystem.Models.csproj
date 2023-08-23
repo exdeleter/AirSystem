@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\AirSystem.Models.xml</DocumentationFile>
+      <DocumentationFile>AirSystem.Models.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

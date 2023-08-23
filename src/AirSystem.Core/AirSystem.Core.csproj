@@ -9,7 +9,13 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\AirSystem.Core.xml</DocumentationFile>
+      <DocumentationFile>AirSystem.Core.xml</DocumentationFile>
     </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AirSystem.Abstractions\AirSystem.Abstractions.csproj" />
+        <ProjectReference Include="..\AirSystem.Models\AirSystem.Models.csproj" />
+        <ProjectReference Include="..\AirSystem.Database\AirSystem.Database.csproj" />
+    </ItemGroup>
 
 </Project>

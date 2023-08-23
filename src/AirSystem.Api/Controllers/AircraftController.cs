@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 
 namespace AirSystem.Api.Controllers;
 
+/// <summary>
+/// Api for aircraft
+/// </summary>
 [ApiController]
 [Route("[controller]")]
 public class AircraftController : ControllerBase
@@ -16,7 +19,10 @@ public class AircraftController : ControllerBase
     private readonly AirSystemContext _context;
     private readonly IMapper _mapper;
 
-    public AircraftController(ILogger<AircraftController> logger, AirSystemContext context, IMapper mapper)//, IMapper mapper)
+    public AircraftController(
+        ILogger<AircraftController> logger,
+        AirSystemContext context,
+        IMapper mapper)
     {
         _logger = logger;
         _context = context;
@@ -64,7 +70,7 @@ public class AircraftController : ControllerBase
 
         return aircraft;
     }
-    
+
     [HttpPut]
     public async Task<IActionResult> Put(Guid id, [FromBody]Aircraft aircraft)
     {
@@ -79,6 +85,10 @@ public class AircraftController : ControllerBase
     }
 }
 
+/// <summary>
+/// TODO for future pagination
+/// </summary>
+/// <typeparam name="TEntity"></typeparam>
 public class Result<TEntity>
 {
     public List<TEntity> List { get; set; }
