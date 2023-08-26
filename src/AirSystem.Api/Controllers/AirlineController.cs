@@ -1,10 +1,9 @@
 using AirSystem.Abstractions;
 using AirSystem.Database.Contexts;
 using AirSystem.Models.Dtos;
-using AirSystem.Models.Entities;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace AirSystem.Api.Controllers;
@@ -58,19 +57,9 @@ public class AirlineController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<AirlineDto>> Get(Guid id)
     {
-        var entity = await _context.Airlines
-            .FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _service.Get(id);
 
-        if (entity is null)
-        {
-            return NotFound();
-        }
-
-        var dto = _mapper.Map<AirlineDto>(entity);
-
-        await _context.SaveChangesAsync();
-
-        return new ActionResult<AirlineDto>(dto);
+        return new ActionResult<AirlineDto>(entity);
     }
 
     /// <summary>
@@ -81,13 +70,9 @@ public class AirlineController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<AirlineDto>> Post(AirlineDto dto)
     {
-        var entity = _mapper.Map<Airline>(dto);
+        var ent = await _service.Post(dto);
 
-         _context.Airlines.Add(entity);
-
-        await _context.SaveChangesAsync();
-
-        return new ActionResult<AirlineDto>(dto);
+        return new ActionResult<AirlineDto>(ent);
     }
 
     /// <summary>
@@ -98,19 +83,26 @@ public class AirlineController : ControllerBase
     [HttpPut]
     public async Task<ActionResult<AirlineDto>> Put(AirlineDto dto)
     {
-        var ent = await _context.Airlines.AnyAsync(x => x.Id == dto.Id);
+        var ent = await _service.Put(dto);
 
-        if (!ent)
+        if (ent == null)
         {
             return NotFound();
         }
 
-        var entity = _mapper.Map<Airline>(dto);
-
-        _context.Airlines.Update(entity);
-
-        await _context.SaveChangesAsync();
-
         return new ActionResult<AirlineDto>(dto);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpDelete]
+    public async Task<IResult> Delete(Guid id)
+    {
+        await _service.Delete(id);
+
+        return Results.Ok(id);
     }
 }

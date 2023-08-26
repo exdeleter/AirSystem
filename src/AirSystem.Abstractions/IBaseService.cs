@@ -32,4 +32,11 @@ public interface IBaseService<TDto>
     /// <param name="dto"></param>
     /// <returns></returns>
     public Task<TDto> Put(TDto dto);
+
+    /// <summary>
+    /// Delete entity
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public Task Delete(Guid id);
 }

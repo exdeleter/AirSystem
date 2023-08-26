@@ -51,7 +51,7 @@ public class BaseService<TDto, TEntity, TDbContext> : IBaseService<TDto>
         var entity = await _dbContext.Set<TEntity>()
             .FirstOrDefaultAsync(x => x.Id == id);
 
-        if (entity is null)
+        if (entity == default)
         {
             return null;
         }
@@ -68,7 +68,7 @@ public class BaseService<TDto, TEntity, TDbContext> : IBaseService<TDto>
     {
         var entity = _mapper.Map<TEntity>(dto);
 
-        _dbContext.Add(entity);
+        _dbContext.Add((object)entity);
 
         await _dbContext.SaveChangesAsync();
 
@@ -82,7 +82,7 @@ public class BaseService<TDto, TEntity, TDbContext> : IBaseService<TDto>
 
         if (!ent)
         {
-            return dto;
+            return null;
         }
 
         var entity = _mapper.Map<TEntity>(dto);
@@ -92,5 +92,21 @@ public class BaseService<TDto, TEntity, TDbContext> : IBaseService<TDto>
         await _dbContext.SaveChangesAsync();
 
         return dto;
+    }
+
+    /// <inheritdoc />
+    public async Task Delete(Guid id)
+    {
+        var ent = await _dbContext.Set<TEntity>()
+            .FirstOrDefaultAsync(x => x.Id == id);
+
+        if (ent == default)
+        {
+            throw new Exception("This entity is not exists");
+        }
+
+        _dbContext.Remove(ent);
+
+        await _dbContext.SaveChangesAsync();
     }
 }
