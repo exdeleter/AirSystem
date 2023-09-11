@@ -20,7 +20,7 @@ public class Airport : BaseEntity, IHaveCoordinates
     /// <summary>
     /// IKAO code
     /// </summary>
-    public string? IKAOCode { get; set; }
+    public string? ICAOCode { get; set; }
 
     /// <summary>
     /// City ID
@@ -41,5 +41,5 @@ public class Airport : BaseEntity, IHaveCoordinates
     /// <summary>
     /// Airport's website
     /// </summary>
-    public string WebCite { get; set; }
+    public string Website { get; set; }
 }

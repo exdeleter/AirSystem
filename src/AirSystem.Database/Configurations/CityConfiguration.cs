@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AirSystem.Database.Configurations;
 
+/// <summary>
+/// <see cref="City"/> configuration
+/// </summary>
 internal class CityConfiguration : IEntityTypeConfiguration<City>
 {
     public void Configure(EntityTypeBuilder<City> builder)

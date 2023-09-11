@@ -42,5 +42,5 @@ public class AirlineDto : BaseDto
     /// <summary>
     /// 
     /// </summary>
-    public CityDto City { get; set; }
+    public Guid CityId { get; set; }
 }

@@ -17,6 +17,7 @@ var connectionString = builder
 
 builder.Services.AddDbContext<AirSystemContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddTransient<IBaseService<AirlineDto>, BaseService<AirlineDto, Airline, AirSystemContext>>();
+builder.Services.AddTransient<IBaseService<CityDto>, BaseService<CityDto, City, AirSystemContext>>();
 
 builder.Services.AddControllers();
 builder.Services.ConfigureProfiles();
@@ -26,6 +27,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 app.ApplyMigrate();
+
+app
+    .UseCors(options => 
+        options
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

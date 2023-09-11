@@ -3,6 +3,7 @@ using System;
 using AirSystem.Database.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AirSystem.Database.Migrations
 {
     [DbContext(typeof(AirSystemContext))]
-    partial class AirSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20230910193351_ReleaseModelMigration")]
+    partial class ReleaseModelMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -281,9 +284,7 @@ namespace AirSystem.Database.Migrations
                         .HasComment("Airline Id");
 
                     b.Property<DateTime?>("FactArrivalTime")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("fact_arrival_time")
-                        .HasComment("Fact Arrival Time");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("FactDepartureTime")
                         .HasColumnType("timestamp with time zone")
@@ -302,14 +303,12 @@ namespace AirSystem.Database.Migrations
                         .HasComment("Route Id");
 
                     b.Property<DateTime>("ScheduledArrivalTime")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("scheduled_arrival_time")
-                        .HasComment("Scheduled Arrival Time");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("ScheduledDepartureTime")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("scheduled_departure_time")
-                        .HasComment("Scheduled Departure Time");
+                        .HasColumnName("fact_arrival_time")
+                        .HasComment("Fact Arrival Time");
 
                     b.HasKey("Id");
 

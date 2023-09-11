@@ -5,23 +5,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace AirSystem.Database.Configurations;
 
 /// <summary>
-/// <see cref="Airline"/> configuration
+/// <see cref="Airport"/> configuration
 /// </summary>
-internal class AirlineConfiguration : IEntityTypeConfiguration<Airline>
+internal class AirportConfiguration : IEntityTypeConfiguration<Airport>
 {
-    public void Configure(EntityTypeBuilder<Airline> builder)
+    public void Configure(EntityTypeBuilder<Airport> builder)
     {
         builder.HasKey(x => x.Id);
 
         builder
-            .Property(x => x.ShortName)
-            .HasComment("Short name")
-            .HasColumnName("short_name");
-
-        builder
-            .Property(x => x.FullName)
-            .HasComment("Full name")
-            .HasColumnName("full_name");
+            .Property(x => x.Name)
+            .HasComment("Name")
+            .HasColumnName("name");
 
         builder
             .Property(x => x.ICAOCode)
@@ -39,22 +34,22 @@ internal class AirlineConfiguration : IEntityTypeConfiguration<Airline>
             .HasColumnName("city_id");
 
         builder
+            .Property(x => x.Latitude)
+            .HasComment("Latitude")
+            .HasColumnName("latitude");
+
+        builder
+            .Property(x => x.Longitude)
+            .HasComment("Longitude")
+            .HasColumnName("longitude");
+
+        builder
             .Property(x => x.Website)
             .HasComment("Website")
             .HasColumnName("website");
 
-        builder
-            .Property(x => x.CallSign)
-            .HasComment("Callsign")
-            .HasColumnName("callsign");
-
-        builder
-            .Property(x => x.LogoUrl)
-            .HasComment("LogoUrl")
-            .HasColumnName("logo_url");
-
-        builder.ToTable("airlines",
-            t => t.HasComment("Airlines"));
+        builder.ToTable("airports",
+            t => t.HasComment("Airports"));
 
         builder.HasOne(x => x.City)
             .WithMany()

@@ -2,7 +2,7 @@ using AirSystem.Models.Entities.Base;
 
 namespace AirSystem.Models.Entities;
 
-public class Crew : BaseEntity
+public class Passenger : BaseEntity
 {
     /// <summary>
     /// 
@@ -13,15 +13,19 @@ public class Crew : BaseEntity
     /// 
     /// </summary>
     public Guid FlightId { get; set; }
-
+    
     /// <summary>
     /// 
     /// </summary>
-    //todo may be todo later separate class
-    public string Pilot { get; set; }
-
+    public string FirstName { get; set; }
+    
     /// <summary>
     /// 
     /// </summary>
-    public string Copilot { get; set; }
+    public string LastName { get; set; }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SeatNumber { get; set; }
 }

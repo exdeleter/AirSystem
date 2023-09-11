@@ -89,12 +89,12 @@ public class AirportController : ControllerBase
             {
                 City = city,
                 IATACode = airport.IATACode,
-                IKAOCode = airport.ICAOCode,
+                ICAOCode = airport.ICAOCode,
                 Id = new Guid(),
                 Latitude = airport.Latitude,
                 Longitude = airport.Longitude,
                 Name = airport.Name,
-                WebCite = airport.Website
+                Website = airport.Website
             };
 
             airports.Add(entity);

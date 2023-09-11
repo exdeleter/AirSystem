@@ -18,6 +18,6 @@ public class AirlineProfile : Profile
                 exp => exp.Ignore())
             .ForMember(x => x.CityId,
                 exp => exp
-                    .MapFrom(t => t.City.Id));
+                    .MapFrom(t => t.CityId));
     }
 }
