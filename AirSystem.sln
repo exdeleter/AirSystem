@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem.Abstractions", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem.Core", "src\AirSystem.Core\AirSystem.Core.csproj", "{D135F33D-DE24-4BD3-9BC4-C1AC235CA60D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem.Worker", "src\AirSystem.Worker\AirSystem.Worker.csproj", "{2EEDE50F-EE62-4468-A263-6C9662D353CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSystem.Runner", "src\AirSystem.Runner\AirSystem.Runner.csproj", "{2EEDE50F-EE62-4468-A263-6C9662D353CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
