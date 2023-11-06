@@ -1,5 +1,8 @@
 namespace AirSystem.Models.Entities.Base;
 
+/// <summary>
+/// Interface for entity, that have coordinates
+/// </summary>
 public interface IHaveCoordinates
 {
     /// <summary>

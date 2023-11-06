@@ -2,6 +2,9 @@ using AirSystem.Models.Entities.Base;
 
 namespace AirSystem.Models.Entities;
 
+/// <summary>
+/// Flight
+/// </summary>
 public class Flight : BaseEntity
 {
     /// <summary>
@@ -12,7 +15,7 @@ public class Flight : BaseEntity
     ///<summary>
     ///
     ///</summary>
-    public Aircraft Aircraft { get; set; }
+    public required Aircraft Aircraft { get; set; }
     
     ///<summary>
     ///
@@ -22,7 +25,7 @@ public class Flight : BaseEntity
     ///<summary>
     ///
     ///</summary>
-    public Airline Airline { get; set; }
+    public required Airline Airline { get; set; }
     
     ///<summary>
     ///
@@ -32,12 +35,12 @@ public class Flight : BaseEntity
     ///<summary>
     ///
     ///</summary>
-    public Route Route { get; set; }
+    public required Route Route { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    public string Number { get; set; }
+    public required string Number { get; set; }
     
     /// <summary>
     /// 

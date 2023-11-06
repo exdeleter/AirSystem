@@ -8,9 +8,12 @@ namespace AirSystem.Models.Dtos;
 /// </summary>
 public class AirportImport : IHaveCoordinates
 {
+    /// <summary>
+    /// Id
+    /// </summary>
     [Name("id")]
     public int Id { get; set; }
-    
+
     /// <summary>
     /// Airport short  name
     /// </summary>

@@ -3,6 +3,9 @@ using AirSystem.Models.Entities.Base;
 
 namespace AirSystem.Models.Entities;
 
+/// <summary>
+/// Airline
+/// </summary>
 public class Airline : BaseEntity, IHaveAviaCode
 {
     /// <summary>

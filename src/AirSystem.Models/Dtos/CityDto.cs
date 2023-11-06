@@ -8,7 +8,13 @@ namespace AirSystem.Models.Dtos;
 /// </summary>
 public class CityDto : BaseDto
 {
+    /// <summary>
+    /// Name
+    /// </summary>
     public string Name { get; set; }
 
+    /// <summary>
+    /// Country
+    /// </summary>
     public CountryDto Country { get; set; }
 }

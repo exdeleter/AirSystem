@@ -134,4 +134,5 @@ _NCrunch*
 
 .idea
 
+AirSystem.Runner/appsettings.Development.json
 AirSystem.**.xml

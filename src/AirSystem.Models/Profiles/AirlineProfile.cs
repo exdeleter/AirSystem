@@ -9,6 +9,9 @@ namespace AirSystem.Models.Profiles;
 /// </summary>
 public class AirlineProfile : Profile
 {
+    /// <summary>
+    /// <inheritdoc cref="AirlineProfile"/>
+    /// </summary>
     public AirlineProfile()
     {
         CreateMap<Airline, AirlineDto>();

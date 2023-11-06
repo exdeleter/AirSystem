@@ -4,8 +4,14 @@ using AutoMapper;
 
 namespace AirSystem.Models.Profiles;
 
+/// <summary>
+/// <see cref="Aircraft"/> profile
+/// </summary>
 public class AircraftProfile : Profile
 {
+    /// <summary>
+    /// <inheritdoc cref="AirlineProfile"/>
+    /// </summary>
     public AircraftProfile()
     {
         CreateMap<Aircraft, AircraftDto>()

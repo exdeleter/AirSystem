@@ -91,8 +91,23 @@ public class AircraftController : ControllerBase
 /// <typeparam name="TEntity"></typeparam>
 public class Result<TEntity>
 {
-    public List<TEntity> List { get; set; }
+    /// <summary>
+    /// List of entities
+    /// </summary>
+    public List<TEntity>? List { get; set; }
+
+    /// <summary>
+    /// Count
+    /// </summary>
     public int Count { get; set; }
+
+    /// <summary>
+    /// Limit
+    /// </summary>
     public int Limit { get; set; }
+
+    /// <summary>
+    /// Page
+    /// </summary>
     public int Page { get; set; }
 }

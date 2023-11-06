@@ -9,6 +9,9 @@ namespace AirSystem.Models.Profiles;
 /// </summary>
 public class CityProfile : Profile
 {
+    /// <summary>
+    /// <inheritdoc cref="CityProfile"/>
+    /// </summary>
     public CityProfile()
     {
         CreateMap<City, CityDto>().ReverseMap();

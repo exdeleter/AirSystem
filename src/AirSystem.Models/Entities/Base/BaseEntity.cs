@@ -1,6 +1,12 @@
 namespace AirSystem.Models.Entities.Base;
 
+/// <summary>
+/// Base entity
+/// </summary>
 public class BaseEntity
 {
-    public Guid Id { get; set; }
+    /// <summary>
+    /// Id
+    /// </summary>
+    public Guid Id { get; init; }
 }

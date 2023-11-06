@@ -2,6 +2,9 @@ using AirSystem.Models.Entities.Base;
 
 namespace AirSystem.Models.Entities;
 
+/// <summary>
+/// Crew
+/// </summary>
 public class Crew : BaseEntity
 {
     /// <summary>
